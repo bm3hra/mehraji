@@ -172,13 +172,13 @@ img {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    padding-top: 80px; /* Offset for navbar */
+    padding-top: 140px; /* Offset for navbar and badges gap */
+    padding-bottom: 120px; /* Protect content from quick-stats overlap */
 }
 
 .hero-bg {
@@ -741,6 +741,7 @@ footer .rera {
 }
 
 @media (max-width: 768px) {
+    .hero { padding-top: 90px; }
     .nav-links {
         display: none; /* Hide for mobile by default, handled by JS later */
         position: absolute;
@@ -758,8 +759,27 @@ footer .rera {
     .menu-toggle { display: block; }
     .hero-content h1 { font-size: 2rem; }
     .hero-actions { flex-direction: column; }
-    .quick-stats { display: none; } /* Hide on small mobile to save space */
-    .about { padding-top: 80px; }
+    .quick-stats { 
+        display: flex; 
+        flex-wrap: nowrap; 
+        bottom: -50px; 
+        padding: 12px 5px; 
+        gap: 5px; 
+        width: 95%;
+        z-index: 99;
+        justify-content: space-around;
+    }
+    .stat-item {
+        flex: 1 1 0;
+        flex-direction: column;
+        text-align: center;
+        gap: 2px;
+        padding: 0 2px;
+    }
+    .stat-item i { font-size: 28px; }
+    .stat-text h3 { font-size: 18px; }
+    .stat-text p { font-size: 12px; }
+    .about { padding-top: 100px; }
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
